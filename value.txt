@@ -1,0 +1,19 @@
+42, 47, 59
+
+WebClient webClient = new WebClient();
+
+            try
+            {
+                if (!webClient.DownloadString("https://pastebin.com/W8q46nSx").Contains("Debug_0.1"))
+                {
+                    if (MessageBox.Show("There is an avilable update! would u like to upgrade to the latest version?", "Moonlight", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) using (var client = new WebClient())
+                        {
+                            Process.Start("Updater.exe");
+                            this.Close();
+                        }
+                }
+            }
+            catch
+            {
+
+            }
